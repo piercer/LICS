@@ -1,7 +1,9 @@
 package com.dz015.lics.facade
 {
 
+	import com.dz015.lics.core.ServiceLocator;
 	import com.dz015.lics.core.Supervisor;
+	import com.dz015.lics.interfaces.IServiceLocator;
 	import com.dz015.lics.interfaces.ISupervisor;
 	import com.dz015.lics.interfaces.ISystemFacade;
 	import com.dz015.lics.interfaces.IWorker;
@@ -12,12 +14,23 @@ package com.dz015.lics.facade
 	{
 
 		protected var supervisor:ISupervisor;
+		protected var serviceLocator:IServiceLocator;
 
 		public function SystemFacade(key:String)
 		{
 			super(key);
 		}
 		
+		public function addService(serviceName:String, service:Object):void
+		{
+			serviceLocator.addService(serviceName,service);
+		}
+
+		public function getService(serviceName:String):Object
+		{
+			return serviceLocator.getService(serviceName);
+		}
+
 		public function sendSystemNotification(notificationName:String,body:Object = null,type:String = null):void
 		{
 			supervisor.sendSystemNotification(notificationName,body,type);
@@ -37,11 +50,17 @@ package com.dz015.lics.facade
 		{
 			super.initializeFacade();
 			initializeSupervisor();
+			initializeServiceLocator();
 		}
 		
 		protected function initializeSupervisor():void
 		{
 			supervisor = Supervisor.getInstance();
+		}
+
+		protected function initializeServiceLocator():void
+		{
+			serviceLocator = ServiceLocator.getInstance();
 		}
 
 	}

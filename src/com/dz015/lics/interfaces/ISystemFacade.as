@@ -8,6 +8,8 @@ package com.dz015.lics.interfaces
 	{
 		function registerWorker(worker:IWorker):void;
 		function removeWorker(workerName:String):void;
+		function addService(serviceName:String,service:Object):void;
+		function getService(serviceName:String):Object;
 		function sendSystemNotification(notificationName:String,body:Object = null,type:String = null):void;
 	}
 	
