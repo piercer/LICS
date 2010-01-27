@@ -56,8 +56,8 @@ package shell.view
 		private function onUnloadModuleBButtonClicked(event:MouseEvent):void
 		{
 			unloadModule("ModuleB.swf");
-			shell.loadModuleAButton.enabled = true;
-			shell.unloadModuleAButton.enabled = false;
+			shell.loadModuleBButton.enabled = true;
+			shell.unloadModuleBButton.enabled = false;
 		}
 		
 		private function get shell():ShellApplication

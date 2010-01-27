@@ -21,14 +21,14 @@ package com.dz015.lics.facade
 			super(key);
 		}
 		
-		public function addService(serviceName:String, service:Object):void
+		public function addService(serviceType:Class, service:Object):void
 		{
-			serviceLocator.addService(serviceName,service);
+			serviceLocator.addService(serviceType,service);
 		}
 
-		public function getService(serviceName:String):Object
+		public function getService(serviceType:Class):Object
 		{
-			return serviceLocator.getService(serviceName);
+			return serviceLocator.getService(serviceType);
 		}
 
 		public function sendSystemNotification(notificationName:String,body:Object = null,type:String = null):void

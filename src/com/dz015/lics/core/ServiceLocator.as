@@ -24,14 +24,14 @@ package com.dz015.lics.core
 			return _instance;
 		}
 		
-		public function addService(serviceName:String, service:Object):void
+		public function addService(serviceType:Class, service:Object):void
 		{
-			_serviceMap[serviceName] = service;
+			_serviceMap[serviceType] = service;
 		}
 		
-		public function getService(serviceName:String):Object
+		public function getService(serviceType:Class):Object
 		{
-			return _serviceMap[serviceName];
+			return _serviceMap[serviceType];
 		}
 	}
 
