@@ -23,5 +23,10 @@ package com.dz015.lics.controller
 			systemFacade.addService(serviceType,service);
 		}
 
+		public function getService(serviceType:Class):Object
+		{
+			return systemFacade.getService(serviceType);
+		}
+
 	}
 }
