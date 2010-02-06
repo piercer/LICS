@@ -13,7 +13,7 @@ package com.dz015.lics.facade
 	public class SystemFacade extends Facade implements ISystemFacade
 	{
 
-		protected var supervisor:ISupervisor;
+		protected var supervisor:*;
 		protected var serviceLocator:IServiceLocator;
 
 		public function SystemFacade(key:String)
@@ -21,12 +21,12 @@ package com.dz015.lics.facade
 			super(key);
 		}
 		
-		public function addService(serviceType:Class, service:Object):void
+		public function registerService(serviceType:Class, service:Object):void
 		{
 			serviceLocator.addService(serviceType,service);
 		}
 
-		public function getService(serviceType:Class):Object
+		public function retrieveService(serviceType:Class):Object
 		{
 			return serviceLocator.getService(serviceType);
 		}
@@ -62,7 +62,7 @@ package com.dz015.lics.facade
 		{
 			serviceLocator = ServiceLocator.getInstance();
 		}
-
+		
 	}
 
 }

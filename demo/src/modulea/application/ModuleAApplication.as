@@ -1,5 +1,8 @@
 package modulea.application
 {
+	import com.dz015.lics.core.Supervisor;
+	import com.dz015.lics.interfaces.ISupervisor;
+	
 	import flash.events.Event;
 	
 	import modulea.facade.ModuleAFacade;
@@ -23,12 +26,12 @@ package modulea.application
 		
 		private function onCreationComplete(event:FlexEvent):void
 		{
-			ModuleAFacade.getInstance(CORE).startup(this);
+			ModuleAFacade.getInstance(CORE).startup(this);			
 		}
 		
 		private function onAddedToStage(event:Event):void
 		{
-			loaderInfo.addEventListener(Event.UNLOAD,onUnload);			
+			loaderInfo.addEventListener(Event.UNLOAD,onUnload);
 		}
 		
 		private function onUnload(event:Event):void

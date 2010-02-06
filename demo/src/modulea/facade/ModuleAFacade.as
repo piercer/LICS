@@ -1,6 +1,7 @@
 package modulea.facade
 {
 	import com.dz015.lics.facade.SystemFacade;
+	import com.dz015.lics.interfaces.ISupervisor;
 	
 	import modulea.application.ModuleAApplication;
 	import modulea.controller.StartupCommand;
@@ -41,6 +42,6 @@ package modulea.facade
 			removeWorker(ModuleAWorker.NAME);
 			removeCore(multitonKey);
 		}
-		
+				
 	}
 }

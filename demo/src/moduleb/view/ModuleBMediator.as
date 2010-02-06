@@ -33,7 +33,7 @@ package moduleb.view
 			{
 				case ModuleBNotifications.POKE:
 					var originator:String = notification.getBody() as String; 
-					moduleB.textArea.text += "Poked by: "+originator;
+					moduleB.textArea.text += "Poked by: "+originator+"\n";
 					break;
 			}
 		}

@@ -1,9 +1,6 @@
 package modulea.controller
 {
 	import com.dz015.lics.controller.SystemCommand;
-	import com.dz015.lics.facade.SystemFacade;
-	import com.dz015.lics.interfaces.IServiceLocator;
-	import com.dz015.lics.interfaces.ISystemFacade;
 	
 	import modulea.ModuleA;
 	import modulea.model.CurrencyFormatterProxy;
@@ -22,7 +19,7 @@ package modulea.controller
 		{
 			var module:ModuleA = notification.getBody() as ModuleA;
 			facade.registerMediator(new ModuleAMediator(module));
-			facade.registerProxy(new CurrencyFormatterProxy(getService(ICurrencyFormatter) as ICurrencyFormatter));
+			facade.registerProxy(new CurrencyFormatterProxy(retrieveService(ICurrencyFormatter) as ICurrencyFormatter));
 			sendSystemNotification(SystemNotifications.LOG,"Module A: Loaded");
 			sendSystemNotification(SystemNotifications.POKEB,"Module A");
  		}

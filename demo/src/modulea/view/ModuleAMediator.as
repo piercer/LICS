@@ -36,9 +36,9 @@ package modulea.view
 			{
 				case ModuleANotifications.POKE:
 					var originator:String = notification.getBody() as String; 
-					moduleA.textArea.text += "Poked by: "+originator;
+					moduleA.textArea.text += "Poked by: "+originator+"\n";
 					var cfp:CurrencyFormatterProxy = facade.retrieveProxy(CurrencyFormatterProxy.NAME) as CurrencyFormatterProxy;
-					moduleA.textArea.text += "I can format: "+cfp.format(325.25);
+					moduleA.textArea.text += "I can format: "+cfp.format(325.25)+"\n";
 					break;
 			}
 		}

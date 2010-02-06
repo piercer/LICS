@@ -36,9 +36,9 @@ package com.dz015.lics.controller
 		 * @param service The concrete instance of the type that will be shared by all users of this service
 		 * 
 		 */		
-		public function addService(serviceType:Class,service:Object):void
+		public function registerService(serviceType:Class,service:Object):void
 		{
-			systemFacade.addService(serviceType,service);
+			systemFacade.registerService(serviceType,service);
 		}
 		/**
 		 *
@@ -48,9 +48,9 @@ package com.dz015.lics.controller
 		 * @return The concrete instance of that type stored in the servicelocator instance
 		 * 
 		 */
-		public function getService(serviceType:Class):Object
+		public function retrieveService(serviceType:Class):Object
 		{
-			return systemFacade.getService(serviceType);
+			return systemFacade.retrieveService(serviceType);
 		}
 
 	}

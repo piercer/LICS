@@ -8,7 +8,7 @@ package shell.controller
 
 		protected override function initializeMacroCommand():void
 		{
-			addSubCommand(LoadServicesCommand);
+			addSubCommand(RegisterServicesCommand);
 			addSubCommand(LoadMediatorsCommand);
 		}
 
