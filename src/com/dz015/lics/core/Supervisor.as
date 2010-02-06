@@ -1,3 +1,9 @@
+/*
+LICS Framework
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package com.dz015.lics.core
 {
 
@@ -15,7 +21,10 @@ package com.dz015.lics.core
 		
 		private static var _instance:ISupervisor;
 		
+		[ArrayElementType("Array")]
 		private var _systemObserverMap:Array;
+		
+		[ArrayElementType("com.dz015.lics.interfaces.IWorker")]
 		private var _workerMap:Array;
 
 		public function Supervisor()
@@ -75,7 +84,7 @@ package com.dz015.lics.core
 			var observers:Array = _systemObserverMap[ notificationName ] as Array;			
 			for ( var i:int=0; i<observers.length; i++ ) 
 			{
-				if ( Observer(observers[i]).compareNotifyContext( notifyContext ) == true ) 
+				if ( Observer(observers[i]).compareNotifyContext( notifyContext ) ) 
 				{
 					observers.splice(i,1);
 					break;
