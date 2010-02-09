@@ -1,3 +1,9 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package logger.facade
 {
 	import logger.LoggerNotifications;
@@ -25,13 +31,8 @@ package logger.facade
 		
 		override public function handleSystemNotification(notification:INotification):void
 		{
-			switch (notification.getName())
-			{
-				case SystemNotifications.LOG:
-					var message:String = notification.getBody() as String;
-					sendNotification(LoggerNotifications.LOG,message);
-					break;
-			}
+			var message:String = notification.getBody() as String;
+			sendNotification(LoggerNotifications.LOG,message);
 		}
 
 	}

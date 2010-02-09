@@ -1,3 +1,9 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package logger.view
 {
 
@@ -29,13 +35,8 @@ package logger.view
 		
 		override public function handleNotification(notification:INotification):void
 		{
-			switch (notification.getName())
-			{
-				case LoggerNotifications.LOG:
-					var message:String = notification.getBody() as String;
-					logView.textArea.text += message+"\n";
-					break;
-			}
+			var message:String = notification.getBody() as String;
+			logView.textArea.text += message+"\n";
 		}
 
 	}

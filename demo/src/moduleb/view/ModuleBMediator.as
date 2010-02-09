@@ -1,3 +1,9 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package moduleb.view
 {
 	import moduleb.ModuleB;
@@ -29,13 +35,8 @@ package moduleb.view
 
 		override public function handleNotification(notification:INotification):void
 		{
-			switch (notification.getName())
-			{
-				case ModuleBNotifications.POKE:
-					var originator:String = notification.getBody() as String; 
-					moduleB.textArea.text += "Poked by: "+originator+"\n";
-					break;
-			}
+			var originator:String = notification.getBody() as String; 
+			moduleB.textArea.text += "Poked by: "+originator+"\n";
 		}
 
 

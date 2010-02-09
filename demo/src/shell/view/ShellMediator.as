@@ -1,5 +1,12 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package shell.view
 {
+	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.system.ApplicationDomain;
 	import flash.system.LoaderContext;
@@ -29,6 +36,8 @@ package shell.view
 			shell.unloadModuleBButton.addEventListener(MouseEvent.CLICK,onUnloadModuleBButtonClicked);
 			shell.unloadModuleBButton.enabled = false;
 			shell.unloadModuleAButton.enabled = false;
+			shell.loadModuleAButton.enabled = false;
+			shell.loadModuleBButton.enabled = false;
 			loadModule("Logger.swf");
 		}
 		
@@ -36,7 +45,6 @@ package shell.view
 		{
 			loadModule("ModuleA.swf");
 			shell.loadModuleAButton.enabled = false;
-			shell.unloadModuleAButton.enabled = true;
 		}
 
 		private function onUnloadModuleAButtonClicked(event:MouseEvent):void
@@ -50,7 +58,6 @@ package shell.view
 		{
 			loadModule("ModuleB.swf");
 			shell.loadModuleBButton.enabled = false;
-			shell.unloadModuleBButton.enabled = true;
 		}
 		
 		private function onUnloadModuleBButtonClicked(event:MouseEvent):void
@@ -68,6 +75,7 @@ package shell.view
 		private function loadModule(url:String):void
 		{
 			var loader:SWFLoader = new SWFLoader();
+			loader.addEventListener(Event.INIT,onModuleLoaded);
 			loader.load(url);
 			shell.addElement(loader);
 			_modules[url]=loader;
@@ -79,6 +87,25 @@ package shell.view
 			loader.unloadAndStop();
 			shell.removeElement(loader);
 			delete _modules[url];
+		}
+		
+		private function onModuleLoaded(event:Event):void
+		{
+			var loader:SWFLoader = event.target as SWFLoader;
+			loader.removeEventListener(Event.INIT,onModuleLoaded);
+			switch (loader.source)
+			{
+				case 'ModuleA.swf':
+					shell.unloadModuleAButton.enabled = true;
+					break;
+				case 'ModuleB.swf':
+					shell.unloadModuleBButton.enabled = true;
+					break;
+				case 'Logger.swf':
+					shell.loadModuleAButton.enabled = true;
+					shell.loadModuleBButton.enabled = true;
+					break;
+			}
 		}
 
 	}

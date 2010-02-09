@@ -1,3 +1,9 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package modulea.model
 {
 	import org.puremvc.as3.multicore.patterns.proxy.Proxy;

@@ -1,3 +1,9 @@
+/*
+LICS Framework Demo
+Copyright (c) 2010 Conrad Winchester <conrad@dz015.com>
+
+Your reuse is governed by the Creative Commons Attribution 3.0 License
+*/
 package modulea.view
 {
 	import modulea.ModuleA;
@@ -32,15 +38,10 @@ package modulea.view
 
 		override public function handleNotification(notification:INotification):void
 		{
-			switch (notification.getName())
-			{
-				case ModuleANotifications.POKE:
-					var originator:String = notification.getBody() as String; 
-					moduleA.textArea.text += "Poked by: "+originator+"\n";
-					var cfp:CurrencyFormatterProxy = facade.retrieveProxy(CurrencyFormatterProxy.NAME) as CurrencyFormatterProxy;
-					moduleA.textArea.text += "I can format: "+cfp.format(325.25)+"\n";
-					break;
-			}
+			var originator:String = notification.getBody() as String; 
+			moduleA.textArea.text += "Poked by: "+originator+"\n";
+			var cfp:CurrencyFormatterProxy = facade.retrieveProxy(CurrencyFormatterProxy.NAME) as CurrencyFormatterProxy;
+			moduleA.textArea.text += "I can format: "+cfp.format(325.25)+"\n";
 		}
 
 
