@@ -6,24 +6,19 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package modulea.facade
 {
-	import com.dz015.lics.facade.SystemFacade;
-	import com.dz015.lics.interfaces.ISupervisor;
+	import com.dz015.lics.facade.InterCoreFacade;
 	
 	import modulea.application.ModuleAApplication;
 	import modulea.controller.StartupCommand;
 	import modulea.notifications.ModuleANotifications;
 	
-	import org.puremvc.as3.multicore.patterns.facade.Facade;
-	
-	import shell.facade.ShellFacade;
-	
-	public class ModuleAFacade extends SystemFacade
+	public class ModuleAFacade extends InterCoreFacade
 	{
 		
 		public function ModuleAFacade(key:String)
 		{
 			super(key);
-			registerWorker(new ModuleAWorker(this));
+			registerInterCoreMediator(new ModuleAWorker(this));
 		}
 		
 		public static function getInstance(key:String) : ModuleAFacade 
@@ -45,7 +40,7 @@ package modulea.facade
 		
 		public function unload():void
 		{
-			removeWorker(ModuleAWorker.NAME);
+			removeInterCoreMediator(ModuleAWorker.NAME);
 			removeCore(multitonKey);
 		}
 				

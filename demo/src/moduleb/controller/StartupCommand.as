@@ -1,6 +1,6 @@
 package moduleb.controller
 {
-	import com.dz015.lics.controller.SystemCommand;
+	import com.dz015.lics.controller.InterCoreCommand;
 	
 	import moduleb.ModuleB;
 	import moduleb.view.ModuleBMediator;
@@ -9,15 +9,15 @@ package moduleb.controller
 	
 	import shell.SystemNotifications;
 	
-	public class StartupCommand extends SystemCommand
+	public class StartupCommand extends InterCoreCommand
 	{
 
 		public override function execute(notification:INotification):void
 		{
 			var module:ModuleB = notification.getBody() as ModuleB;
 			facade.registerMediator(new ModuleBMediator(module));
-			sendSystemNotification(SystemNotifications.LOG,"Module B: Loaded");
-			sendSystemNotification(SystemNotifications.POKEA,"Module B");
+			sendInterCoreNotification(SystemNotifications.LOG,"Module B: Loaded");
+			sendInterCoreNotification(SystemNotifications.POKEA,"Module B");
 		}
 
 	}

@@ -6,7 +6,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package moduleb.facade
 {
-	import com.dz015.lics.facade.SystemFacade;
+	import com.dz015.lics.facade.InterCoreFacade;
 	
 	import moduleb.application.ModuleBApplication;
 	import moduleb.controller.StartupCommand;
@@ -16,13 +16,13 @@ package moduleb.facade
 	
 	import shell.facade.ShellFacade;
 	
-	public class ModuleBFacade extends SystemFacade
+	public class ModuleBFacade extends InterCoreFacade
 	{
 		
 		public function ModuleBFacade(key:String)
 		{
 			super(key);
-			registerWorker(new ModuleBWorker(this));
+			registerInterCoreMediator(new ModuleBWorker(this));
 		}
 		
 		public static function getInstance(key:String) : ModuleBFacade 
@@ -44,7 +44,7 @@ package moduleb.facade
 		
 		public function unload():void
 		{
-			removeWorker(ModuleBWorker.NAME);
+			removeInterCoreMediator(ModuleBWorker.NAME);
 			removeCore(multitonKey);
 		}
 		

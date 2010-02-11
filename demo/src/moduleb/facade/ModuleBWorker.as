@@ -6,8 +6,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package moduleb.facade
 {
-	import com.dz015.lics.core.Worker;
-	import com.dz015.lics.interfaces.ISystemFacade;
+	import com.dz015.lics.core.InterCoreMediator;
 	
 	import moduleb.notifications.ModuleBNotifications;
 	
@@ -15,7 +14,7 @@ package moduleb.facade
 	
 	import shell.SystemNotifications;
 	
-	public class ModuleBWorker extends Worker
+	public class ModuleBWorker extends InterCoreMediator
 	{
 		
 		public static const NAME:String = "moduleBWorker";
@@ -25,12 +24,12 @@ package moduleb.facade
 			super(NAME,facade);
 		}
 
-		public override function handleSystemNotification(notification:INotification):void
+		public override function handleInterCoreNotification(notification:INotification):void
 		{
 			sendNotification(ModuleBNotifications.POKE,notification.getBody() as String);
 		}
 
-		public override function listSystemNotificationInterests():Array
+		public override function listInterCoreNotificationInterests():Array
 		{
 			return [ SystemNotifications.POKEB ];
 		}

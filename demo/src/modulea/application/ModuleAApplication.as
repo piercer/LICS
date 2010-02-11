@@ -6,9 +6,6 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package modulea.application
 {
-	import com.dz015.lics.core.Supervisor;
-	import com.dz015.lics.interfaces.ISupervisor;
-	
 	import flash.events.Event;
 	
 	import modulea.facade.ModuleAFacade;

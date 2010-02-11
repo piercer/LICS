@@ -6,13 +6,13 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package shell.facade
 {
-	import com.dz015.lics.facade.SystemFacade;
+	import com.dz015.lics.facade.InterCoreFacade;
 	
 	import shell.ShellNotification;
 	import shell.application.ShellApplication;
 	import shell.controller.StartupCommand;
 	
-	public class ShellFacade extends SystemFacade
+	public class ShellFacade extends InterCoreFacade
 	{
 		public function ShellFacade(key:String)
 		{

@@ -6,7 +6,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package logger.facade
 {
-	import com.dz015.lics.facade.SystemFacade;
+	import com.dz015.lics.facade.InterCoreFacade;
 	
 	import logger.LoggerNotifications;
 	import logger.application.LoggerApplication;
@@ -16,12 +16,12 @@ package logger.facade
 	
 	import shell.SystemNotifications;
 	
-	public class LoggerFacade extends SystemFacade
+	public class LoggerFacade extends InterCoreFacade
 	{
 		public function LoggerFacade(key:String)
 		{
 			super(key);
-			registerWorker(new LoggerWorker(this));
+			registerInterCoreMediator(new LoggerWorker(this));
 		}
 		
 		public static function getInstance(key:String) : LoggerFacade 
