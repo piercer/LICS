@@ -30,12 +30,12 @@ package com.dz015.lics.core
 			return _instance;
 		}
 		
-		public function addService(serviceType:Class, service:Object):void
+		public function registerService(serviceType:Class, service:Object):void
 		{
 			_serviceMap[serviceType] = service;
 		}
 		
-		public function getService(serviceType:Class):Object
+		public function retrieveService(serviceType:Class):Object
 		{
 			return _serviceMap[serviceType];
 		}

@@ -9,8 +9,8 @@ package com.dz015.lics.interfaces
 
 	public interface IServiceLocator
 	{
-		function addService(serviceType:Class,service:Object):void;
-		function getService(serviceType:Class):Object;
+		function registerService(serviceType:Class,service:Object):void;
+		function retrieveService(serviceType:Class):Object;
 	}
 
 }

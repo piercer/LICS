@@ -7,56 +7,55 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 package com.dz015.lics.core
 {
 
-	import com.dz015.lics.interfaces.ISupervisor;
-	import com.dz015.lics.interfaces.ISystemFacade;
-	import com.dz015.lics.interfaces.IWorker;
+	import com.dz015.lics.interfaces.IInterCoreMediator;
+	import com.dz015.lics.interfaces.IInterCoreRouter;
 	
 	import org.puremvc.as3.multicore.interfaces.INotification;
 	import org.puremvc.as3.multicore.interfaces.IObserver;
 	import org.puremvc.as3.multicore.patterns.observer.Notification;
 	import org.puremvc.as3.multicore.patterns.observer.Observer;
 
-	public class Supervisor implements ISupervisor
+	public class InterCoreRouter implements IInterCoreRouter
 	{
 		
-		private static var _instance:ISupervisor;
+		private static var _instance:IInterCoreRouter;
 		
 		[ArrayElementType("Array")]
 		private var _systemObserverMap:Array;
 		
-		[ArrayElementType("com.dz015.lics.interfaces.IWorker")]
+		[ArrayElementType("com.dz015.lics.interfaces.IInterCoreMediator")]
 		private var _workerMap:Array;
 
-		public function Supervisor()
+		public function InterCoreRouter()
 		{
 			_systemObserverMap = [];
 			_workerMap = [];
 		}
 		
-		public static function getInstance():ISupervisor
+		public static function getInstance():IInterCoreRouter
 		{
 			if (!_instance)
 			{
-				_instance = new Supervisor();
+				_instance = new InterCoreRouter();
 			}
 			return _instance;
 		}
 		
-		public function sendSystemNotification(notificationName:String, body:Object=null, type:String=null):void
+		public function sendInterCoreNotification(notificationName:String, body:Object=null, type:String=null):void
 		{
 			var notification:Notification = new Notification(notificationName,body,type);
 			notifySystemObservers(notification);
 		}
 		
-		public function registerWorker(worker:IWorker):void
+		public function registerInterCoreMediator(worker:IInterCoreMediator):void
 		{
 			
-			if (_workerMap[worker.getWorkerName()]!=null) return;
-			_workerMap[worker.getWorkerName()] = worker;
-			var interests:Array = worker.listSystemNotificationInterests();
+			if (_workerMap[worker.getMediatorName()]!=null) return;
+			_workerMap[worker.getMediatorName()] = worker;
+			var interests:Array = worker.listInterCoreNotificationInterests();
 			if ( interests.length > 0) 
 			{
-				var observer:Observer = new Observer( worker.handleSystemNotification, worker );				
+				var observer:Observer = new Observer( worker.handleInterCoreNotification, worker );				
 				for ( var i:Number=0;  i<interests.length; i++ ) 
 				{
 					registerSystemObserver( interests[i],  observer );
@@ -64,13 +63,13 @@ package com.dz015.lics.core
 			}
 		}
 		
-		public function removeWorker( workerName:String ) : void
+		public function removeInterCoreMediator( workerName:String ) : void
 		{
-			var worker:IWorker = _workerMap[ workerName ] as IWorker;
+			var worker:IInterCoreMediator = _workerMap[ workerName ] as IInterCoreMediator;
 			
 			if ( worker ) 
 			{
-				var interests:Array = worker.listSystemNotificationInterests();
+				var interests:Array = worker.listInterCoreNotificationInterests();
 				for ( var i:Number=0; i<interests.length; i++ ) 
 				{
 					removeSystemObserver( interests[i], worker );

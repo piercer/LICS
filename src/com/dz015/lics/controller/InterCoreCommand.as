@@ -7,16 +7,16 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 package com.dz015.lics.controller
 {
 
-	import com.dz015.lics.interfaces.ISystemFacade;
+	import com.dz015.lics.interfaces.IInterCoreFacade;
 	
 	import org.puremvc.as3.multicore.patterns.command.SimpleCommand;
 	
-	public class SystemCommand extends SimpleCommand
+	public class InterCoreCommand extends SimpleCommand
 	{
 		
-		protected function get systemFacade():ISystemFacade 
+		protected function get interCoreFacade():IInterCoreFacade 
 		{
-			return facade as ISystemFacade;
+			return facade as IInterCoreFacade;
 		}
 		/**
 		 * 
@@ -31,9 +31,9 @@ package com.dz015.lics.controller
 		 * @see org.puremvc.as3.multicore.patterns.mediator.Mediator
 		 * 
 		 */		
-		public function sendSystemNotification( notificationName:String, body:Object=null, type:String=null ):void 
+		public function sendInterCoreNotification( notificationName:String, body:Object=null, type:String=null ):void 
 		{
-			systemFacade.sendSystemNotification( notificationName, body, type );
+			interCoreFacade.sendInterCoreNotification( notificationName, body, type );
 		}
 		/**
 		 * Use this method to add a globally accessible service to the servicelocator instance
@@ -44,7 +44,7 @@ package com.dz015.lics.controller
 		 */		
 		public function registerService(serviceType:Class,service:Object):void
 		{
-			systemFacade.registerService(serviceType,service);
+			interCoreFacade.registerService(serviceType,service);
 		}
 		/**
 		 *
@@ -56,7 +56,7 @@ package com.dz015.lics.controller
 		 */
 		public function retrieveService(serviceType:Class):Object
 		{
-			return systemFacade.retrieveService(serviceType);
+			return interCoreFacade.retrieveService(serviceType);
 		}
 
 	}

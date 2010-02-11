@@ -8,15 +8,14 @@ package com.dz015.lics.interfaces
 {
 
 	import org.puremvc.as3.multicore.interfaces.IFacade;
-	import org.puremvc.as3.multicore.interfaces.INotification;
 	
-	public interface ISystemFacade extends IFacade
+	public interface IInterCoreFacade extends IFacade
 	{
-		function registerWorker(worker:IWorker):void;
-		function removeWorker(workerName:String):void;
+		function registerInterCoreMediator(mediator:IInterCoreMediator):void;
+		function removeInterCoreMediator(mediatorName:String):void;
 		function registerService(serviceType:Class,service:Object):void;
 		function retrieveService(serviceType:Class):Object;
-		function sendSystemNotification(notificationName:String,body:Object = null,type:String = null):void;
+		function sendInterCoreNotification(notificationName:String,body:Object = null,type:String = null):void;
 	}
 	
 }
