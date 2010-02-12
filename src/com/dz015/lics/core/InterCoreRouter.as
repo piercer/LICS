@@ -7,7 +7,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 package com.dz015.lics.core
 {
 
-	import com.dz015.lics.interfaces.IInterCoreMediator;
+	import com.dz015.lics.interfaces.ICoreMediator;
 	import com.dz015.lics.interfaces.IInterCoreRouter;
 	
 	import org.puremvc.as3.multicore.interfaces.INotification;
@@ -23,7 +23,7 @@ package com.dz015.lics.core
 		[ArrayElementType("Array")]
 		private var _systemObserverMap:Array;
 		
-		[ArrayElementType("com.dz015.lics.interfaces.IInterCoreMediator")]
+		[ArrayElementType("com.dz015.lics.interfaces.ICoreMediator")]
 		private var _workerMap:Array;
 
 		public function InterCoreRouter()
@@ -47,7 +47,7 @@ package com.dz015.lics.core
 			notifySystemObservers(notification);
 		}
 		
-		public function registerInterCoreMediator(worker:IInterCoreMediator):void
+		public function registerInterCoreMediator(worker:ICoreMediator):void
 		{
 			
 			if (_workerMap[worker.getMediatorName()]!=null) return;
@@ -65,7 +65,7 @@ package com.dz015.lics.core
 		
 		public function removeInterCoreMediator( workerName:String ) : void
 		{
-			var worker:IInterCoreMediator = _workerMap[ workerName ] as IInterCoreMediator;
+			var worker:ICoreMediator = _workerMap[ workerName ] as ICoreMediator;
 			
 			if ( worker ) 
 			{

@@ -6,7 +6,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package modulea.facade
 {
-	import com.dz015.lics.core.InterCoreMediator;
+	import com.dz015.lics.core.CoreMediator;
 	
 	import modulea.notifications.ModuleANotifications;
 	
@@ -14,7 +14,7 @@ package modulea.facade
 	
 	import shell.SystemNotifications;
 	
-	public class ModuleAWorker extends InterCoreMediator
+	public class ModuleAWorker extends CoreMediator
 	{
 		
 		public static const NAME:String = "moduleAWorker";

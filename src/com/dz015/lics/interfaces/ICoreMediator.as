@@ -8,7 +8,7 @@ package com.dz015.lics.interfaces
 {
 	import org.puremvc.as3.multicore.interfaces.INotification;
 
-	public interface IInterCoreMediator
+	public interface ICoreMediator
 	{
 		function getMediatorName():String;
 		function listInterCoreNotificationInterests():Array;

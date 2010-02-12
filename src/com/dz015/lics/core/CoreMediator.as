@@ -7,17 +7,17 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 package com.dz015.lics.core
 {
 	import com.dz015.lics.interfaces.IInterCoreFacade;
-	import com.dz015.lics.interfaces.IInterCoreMediator;
+	import com.dz015.lics.interfaces.ICoreMediator;
 	
 	import org.puremvc.as3.multicore.interfaces.INotification;
 	
-	public class InterCoreMediator implements IInterCoreMediator
+	public class CoreMediator implements ICoreMediator
 	{
 
 		protected var facade:IInterCoreFacade;
 		private var _name:String;
 
-		public function InterCoreMediator(name:String,facade:IInterCoreFacade)
+		public function CoreMediator(name:String,facade:IInterCoreFacade)
 		{
 			this.facade = facade;
 			_name = name;

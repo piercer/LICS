@@ -10,7 +10,7 @@ package com.dz015.lics.facade
 	import com.dz015.lics.core.InterCoreRouter;
 	import com.dz015.lics.core.ServiceLocator;
 	import com.dz015.lics.interfaces.IInterCoreFacade;
-	import com.dz015.lics.interfaces.IInterCoreMediator;
+	import com.dz015.lics.interfaces.ICoreMediator;
 	import com.dz015.lics.interfaces.IInterCoreRouter;
 	import com.dz015.lics.interfaces.IServiceLocator;
 	
@@ -47,7 +47,7 @@ package com.dz015.lics.facade
 			router.removeInterCoreMediator(workerName);
 		}
 
-		public function registerInterCoreMediator(worker:IInterCoreMediator):void
+		public function registerInterCoreMediator(worker:ICoreMediator):void
 		{
 			router.registerInterCoreMediator(worker);
 		}
