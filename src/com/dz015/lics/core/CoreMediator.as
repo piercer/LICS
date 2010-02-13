@@ -6,8 +6,9 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package com.dz015.lics.core
 {
-	import com.dz015.lics.interfaces.IInterCoreFacade;
+
 	import com.dz015.lics.interfaces.ICoreMediator;
+	import com.dz015.lics.interfaces.IInterCoreFacade;
 	
 	import org.puremvc.as3.multicore.interfaces.INotification;
 	
@@ -21,11 +22,6 @@ package com.dz015.lics.core
 		{
 			this.facade = facade;
 			_name = name;
-		}
-
-		public function sendInterCoreNotification(notificationName:String, body:Object=null, type:String=null):void
-		{
-			facade.sendInterCoreNotification(notificationName, body, type);
 		}
 		
 		public function sendNotification(notificationName:String, body:Object=null, type:String=null):void

@@ -18,7 +18,7 @@ package modulea.facade
 		public function ModuleAFacade(key:String)
 		{
 			super(key);
-			registerInterCoreMediator(new ModuleAWorker(this));
+			registerCoreMediator(new ModuleACoreMediator(this));
 		}
 		
 		public static function getInstance(key:String) : ModuleAFacade 
@@ -40,7 +40,7 @@ package modulea.facade
 		
 		public function unload():void
 		{
-			removeInterCoreMediator(ModuleAWorker.NAME);
+			removeCoreMediator(ModuleACoreMediator.NAME);
 			removeCore(multitonKey);
 		}
 				

@@ -22,7 +22,7 @@ package moduleb.facade
 		public function ModuleBFacade(key:String)
 		{
 			super(key);
-			registerInterCoreMediator(new ModuleBWorker(this));
+			registerCoreMediator(new ModuleBCoreMediator(this));
 		}
 		
 		public static function getInstance(key:String) : ModuleBFacade 
@@ -44,7 +44,7 @@ package moduleb.facade
 		
 		public function unload():void
 		{
-			removeInterCoreMediator(ModuleBWorker.NAME);
+			removeCoreMediator(ModuleBCoreMediator.NAME);
 			removeCore(multitonKey);
 		}
 		

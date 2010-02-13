@@ -14,12 +14,12 @@ package moduleb.facade
 	
 	import shell.SystemNotifications;
 	
-	public class ModuleBWorker extends CoreMediator
+	public class ModuleBCoreMediator extends CoreMediator
 	{
 		
 		public static const NAME:String = "moduleBWorker";
 		
-		public function ModuleBWorker(facade:ModuleBFacade)
+		public function ModuleBCoreMediator(facade:ModuleBFacade)
 		{
 			super(NAME,facade);
 		}

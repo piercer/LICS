@@ -11,8 +11,8 @@ package com.dz015.lics.interfaces
 	
 	public interface IInterCoreFacade extends IFacade
 	{
-		function registerInterCoreMediator(mediator:ICoreMediator):void;
-		function removeInterCoreMediator(mediatorName:String):void;
+		function registerCoreMediator(mediator:ICoreMediator):void;
+		function removeCoreMediator(mediatorName:String):void;
 		function registerService(serviceType:Class,service:Object):void;
 		function retrieveService(serviceType:Class):Object;
 		function sendInterCoreNotification(notificationName:String,body:Object = null,type:String = null):void;

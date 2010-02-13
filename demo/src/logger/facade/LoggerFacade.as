@@ -21,7 +21,7 @@ package logger.facade
 		public function LoggerFacade(key:String)
 		{
 			super(key);
-			registerInterCoreMediator(new LoggerWorker(this));
+			registerCoreMediator(new LoggerCoreMediator(this));
 		}
 		
 		public static function getInstance(key:String) : LoggerFacade 

@@ -10,8 +10,8 @@ package com.dz015.lics.interfaces
 	public interface IInterCoreRouter
 	{
 		function sendInterCoreNotification(notificationName:String, body:Object=null, type:String=null):void;
-		function registerInterCoreMediator(mediator:ICoreMediator):void;
-		function removeInterCoreMediator(mediatorName:String):void;
+		function registerCoreMediator(mediator:ICoreMediator):void;
+		function removeCoreMediator(mediatorName:String):void;
 	}
 
 }

@@ -47,7 +47,7 @@ package com.dz015.lics.core
 			notifySystemObservers(notification);
 		}
 		
-		public function registerInterCoreMediator(worker:ICoreMediator):void
+		public function registerCoreMediator(worker:ICoreMediator):void
 		{
 			
 			if (_workerMap[worker.getMediatorName()]!=null) return;
@@ -63,7 +63,7 @@ package com.dz015.lics.core
 			}
 		}
 		
-		public function removeInterCoreMediator( workerName:String ) : void
+		public function removeCoreMediator( workerName:String ) : void
 		{
 			var worker:ICoreMediator = _workerMap[ workerName ] as ICoreMediator;
 			

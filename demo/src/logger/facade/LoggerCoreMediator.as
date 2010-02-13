@@ -6,6 +6,7 @@ Your reuse is governed by the Creative Commons Attribution 3.0 License
 */
 package logger.facade
 {
+
 	import com.dz015.lics.core.CoreMediator;
 	import com.dz015.lics.interfaces.IInterCoreFacade;
 	
@@ -15,12 +16,12 @@ package logger.facade
 	
 	import shell.SystemNotifications;
 	
-	public class LoggerWorker extends CoreMediator
+	public class LoggerCoreMediator extends CoreMediator
 	{
 		
-		public static const NAME:String = "loggerWorker";
+		public static const NAME:String = "loggerCoreMediator";
 		
-		public function LoggerWorker(facade:IInterCoreFacade)
+		public function LoggerCoreMediator(facade:IInterCoreFacade)
 		{
 			super(NAME,facade)
 		}
