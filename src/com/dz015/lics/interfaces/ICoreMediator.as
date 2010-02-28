@@ -12,6 +12,7 @@ package com.dz015.lics.interfaces
 	{
 		function getMediatorName():String;
 		function listInterCoreNotificationInterests():Array;
+		function listTypedInterCoreNotificationInterests():Array;
 		function handleInterCoreNotification(notification:INotification):void;
 	}
 }

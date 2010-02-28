@@ -15,7 +15,9 @@ package com.dz015.lics.interfaces
 		function removeCoreMediator(mediatorName:String):void;
 		function registerService(serviceType:Class,service:Object):void;
 		function retrieveService(serviceType:Class):Object;
+		function setTypedInterCoreNotificationArgumentTypes(signalName:String,...signalArgumentTypes):void;
 		function sendInterCoreNotification(notificationName:String,body:Object = null,type:String = null):void;
+		function sendTypedInterCoreNotification(signalName:String,...signalArguments):void;
 	}
 	
 }

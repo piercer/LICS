@@ -58,6 +58,12 @@ package com.dz015.lics.controller
 		{
 			return interCoreFacade.retrieveService(serviceType);
 		}
+		
+		public function sendInterCoreSignal(signalName:String,...signalArguments):void
+		{
+			interCoreFacade.sendTypedInterCoreNotification.apply(null,[signalName].concat(signalArguments));
+		}
+
 
 	}
 }

@@ -11,8 +11,9 @@ package com.dz015.lics.core
 	import com.dz015.lics.interfaces.IInterCoreFacade;
 	
 	import org.puremvc.as3.multicore.interfaces.INotification;
+	import org.puremvc.as3.multicore.interfaces.INotifier;
 	
-	public class CoreMediator implements ICoreMediator
+	public class CoreMediator implements ICoreMediator, INotifier
 	{
 
 		protected var facade:IInterCoreFacade;
@@ -29,9 +30,20 @@ package com.dz015.lics.core
 			facade.sendNotification(notificationName, body, type);
 		}
 
+
+		public function sendTypedNotification(notificationName:String, ...parameters):void
+		{
+			facade.sendTypedNotification.apply(null,[notificationName].concat(parameters));
+		}
+
 		public function listInterCoreNotificationInterests():Array
 		{
-			return null;
+			return [];
+		}
+
+		public function listTypedInterCoreNotificationInterests():Array
+		{
+			return [];
 		}
 		
 		public function handleInterCoreNotification(notification:INotification):void
@@ -43,5 +55,9 @@ package com.dz015.lics.core
 			return _name;
 		}
 
+		public function initializeNotifier( key:String ):void
+		{
+		}
+		
 	}
 }

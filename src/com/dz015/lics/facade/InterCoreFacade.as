@@ -52,6 +52,16 @@ package com.dz015.lics.facade
 			router.registerCoreMediator(mediator);
 		}
 		
+		public function setTypedInterCoreNotificationArgumentTypes(signalName:String,...signalArgumentTypes):void
+		{
+			router.setTypedInterCoreNotificationArgumentTypes.apply(null,[signalName].concat(signalArgumentTypes));
+		}
+
+		public function sendTypedInterCoreNotification(signalName:String,...signalArgumentTypes):void
+		{
+			router.sendTypedInterCoreNotification.apply(null,[signalName].concat(signalArgumentTypes));
+		}
+		
 		override protected function initializeFacade():void
 		{
 			super.initializeFacade();
